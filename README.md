@@ -1,6 +1,7 @@
 # LIGGGHTS Syntax Skill for Claude Code
 
-Claude Code skill providing comprehensive LIGGGHTS-PUBLIC v3.X input script syntax reference. Helps AI agents and users write, debug, and review LIGGGHTS DEM simulation scripts.
+Claude Code skill providing comprehensive LIGGGHTS-PUBLIC v3.X input script syntax reference.
+Helps AI agents and users write, debug, and review LIGGGHTS DEM simulation scripts.
 
 ## What This Skill Covers
 
@@ -9,60 +10,44 @@ Claude Code skill providing comprehensive LIGGGHTS-PUBLIC v3.X input script synt
 - **Complete command reference** — all 100+ LIGGGHTS commands organized by category
 - **Contact model syntax** — the 3.X `model` keyword system replacing old 2.X slash syntax
 - **Variable system** — all 12 styles, formula elements, `$var` vs `v_var` evaluation
-- **Unit systems** — all 8 styles (si, cgs, lj, real, metal, micro, nano, electron)
+- **Unit systems** — all 8 unit styles with dimensions table
 - **Working examples** — minimal simulation, multi-material, mesh walls, loops
 
 Based on LIGGGHTS-PUBLIC v3.8.0 official documentation.
 
 ## Quick Install
 
-### For Users (Claude Code)
+### Linux / macOS / WSL
 
-**Option A: Git Clone (recommended)**
 ```bash
-mkdir -p ~/.claude/skills/skills
-git clone https://github.com/qxyanda/liggghts-syntax-skill.git ~/.claude/skills/skills/liggghts-syntax-tmp
-cp -r ~/.claude/skills/skills/liggghts-syntax-tmp/* ~/.claude/skills/
-rm -rf ~/.claude/skills/skills/liggghts-syntax-tmp
+curl -fsSL https://raw.githubusercontent.com/qxyanda/liggghts-syntax-skill/main/install.sh | bash
 ```
 
-**Option B: One-liner (Linux/macOS/WSL)**
-```bash
-curl -fsSL https://raw.githubusercontent.com/HT-YD/liggghts-syntax-skill/main/install.sh | bash
-```
+### Windows (PowerShell)
 
-**Option C: PowerShell (Windows)**
 ```powershell
-iwr -Uri https://raw.githubusercontent.com/HT-YD/liggghts-syntax-skill/main/install.ps1 | iex
+iwr -Uri https://raw.githubusercontent.com/qxyanda/liggghts-syntax-skill/main/install.ps1 | iex
 ```
 
-**Option D: Manual**
+### Manual Install
+
 ```bash
 git clone https://github.com/qxyanda/liggghts-syntax-skill.git
-cp -r liggghts-syntax-skill/skills ~/.claude/skills/
-cp -r liggghts-syntax-skill/.claude-plugin ~/.claude/skills/
+mkdir -p ~/.claude/skills/liggghts-syntax
+cp liggghts-syntax-skill/skills/liggghts-syntax/SKILL.md ~/.claude/skills/liggghts-syntax/
 ```
 
-### For AI Agents (Automated Install)
-
-Agents can self-install this skill by running:
+### AI Agent Self-Install
 
 ```bash
-SKILL_DIR="$HOME/.claude/skills"
-mkdir -p "$SKILL_DIR/skills/liggghts-syntax"
-curl -fsSL https://raw.githubusercontent.com/HT-YD/liggghts-syntax-skill/main/skills/liggghts-syntax/SKILL.md \
-  -o "$SKILL_DIR/skills/liggghts-syntax/SKILL.md"
-```
-
-Or via the bundled install script:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/HT-YD/liggghts-syntax-skill/main/install.sh | bash
+mkdir -p ~/.claude/skills/liggghts-syntax
+curl -fsSL https://raw.githubusercontent.com/qxyanda/liggghts-syntax-skill/main/skills/liggghts-syntax/SKILL.md \
+  -o ~/.claude/skills/liggghts-syntax/SKILL.md
 ```
 
 ## Usage
 
-Once installed, invoke the skill by mentioning any of these trigger phrases:
+Invoke the skill by mentioning any trigger phrase:
 
 - "LIGGGHTS syntax"
 - "LIGGGHTS script"
@@ -73,7 +58,19 @@ Once installed, invoke the skill by mentioning any of these trigger phrases:
 
 Or use `/liggghts-syntax` slash command.
 
-The skill activates automatically when Claude Code detects these phrases, providing instant access to the full syntax reference.
+## Install Location
+
+```
+~/.claude/skills/
+  liggghts-syntax/
+    SKILL.md               # Main skill file
+    example/
+      in.simple            # Working example script
+  philosophy/              # (existing, unaffected)
+    SKILL.md
+```
+
+`liggghts-syntax` installs as a standalone skill, independent from any other plugins.
 
 ## Repository Structure
 
@@ -81,47 +78,21 @@ The skill activates automatically when Claude Code detects these phrases, provid
 liggghts-syntax-skill/
   skills/
     liggghts-syntax/
-      SKILL.md              # Main skill file (~600 lines)
-  .claude-plugin/
-    plugin.json             # Plugin metadata
-    marketplace.json         # Marketplace registration
-  install.sh                # Bash/Zsh installer
-  install.ps1               # PowerShell installer
+      SKILL.md              # Main skill content
   example/
     in.simple               # Minimal working input script
+  install.sh                # Bash/Zsh installer
+  install.ps1               # PowerShell installer
   README.md
   LICENSE
 ```
 
-## Example Output
-
-When invoked, the skill provides:
-- Exact syntax for any LIGGGHTS command
-- Contact model selection examples (hertz, hooke, sjkr, cdt, etc.)
-- Material property requirements for each model
-- Working copy-paste script templates
-- Common mistakes and restrictions
-
 ## Requirements
 
-- Claude Code (any version with skill support)
+- Claude Code with skill support
 - No external dependencies
-- No LIGGGHTS installation required (this is a reference skill)
-
-## Contributing
-
-This skill is derived from the official LIGGGHTS-PUBLIC documentation.
-To suggest improvements:
-
-1. Fork the repository
-2. Edit `skills/liggghts-syntax/SKILL.md`
-3. Submit a PR
+- No LIGGGHTS installation required (reference skill only)
 
 ## License
 
 MIT — see [LICENSE](LICENSE) file.
-
-## Related Projects
-
-- [LIGGGHTS-PUBLIC](https://github.com/CFDEMproject/LIGGGHTS-PUBLIC) — Open-source DEM simulation software
-- [CFDEM(R)project](https://www.cfdem.com) — Official project website
