@@ -1,0 +1,12 @@
+{
+  "name": "liggghts-syntax",
+  "description": "LIGGGHTS v3.X input script syntax reference for Claude Code. Covers parsing rules, complete command reference, contact model syntax (2.X to 3.X migration), variable system, units, particle insertion patterns, and output configuration.",
+  "author": {
+    "name": "qxyan",
+    "url": "https://github.com/qxyanda"
+  },
+  "repository": "https://github.com/qxyanda/liggghts-syntax-skill",
+  "keywords": ["liggghts", "dem", "granular", "cfdem", "simulation", "syntax", "reference"],
+  "version": "1.0.0",
+  "license": "MIT"
+}

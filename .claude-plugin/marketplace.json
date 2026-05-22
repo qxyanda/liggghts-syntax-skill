@@ -1,0 +1,15 @@
+{
+  "name": "liggghts-syntax",
+  "description": "LIGGGHTS v3.X input script syntax reference for Claude Code — complete command reference, contact model syntax, variable system, and working examples.",
+  "owner": {
+    "name": "qxyan"
+  },
+  "plugins": [
+    {
+      "name": "liggghts-syntax",
+      "description": "LIGGGHTS v3.8.0 input script syntax reference. Covers parsing rules, all commands, contact model syntax (model keyword system), variable system, units, particle insertion, mesh/wall setup, and output configuration. Trigger: 'LIGGGHTS syntax', 'LIGGGHTS script', 'DEM script syntax'.",
+      "source": "./",
+      "category": "reference"
+    }
+  ]
+}
